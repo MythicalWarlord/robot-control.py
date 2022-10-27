@@ -40,7 +40,7 @@ class MyController(Controller):
         print("L1 released")
 
     def on_L2_press(self, value):
-        print("L2 pressed to " + value)
+        print("L2 pressed to %d" % value)
 
     def on_L2_release(self):
         print("L2 released")
@@ -58,7 +58,7 @@ class MyController(Controller):
         print("R1 released")
 
     def on_R2_press(self, value):
-        print("R2 pressed to " + value)
+        print("R2 pressed to %d" % value)
 
     def on_R2_release(self):
         print("R2 released")
@@ -106,28 +106,28 @@ class MyController(Controller):
         print("playstation button released")
 
     def on_L3_up(self, value):
-        print("L3 up to " + value)
+        print("L3 up to %d" % value)
 
     def on_L3_down(self, value):
-        print("L3 down to " + value)
+        print("L3 down to %d" % value)
 
     def on_L3_left(self, value):
-        print("L3 left to " + value)
+        print("L3 left to %d" % value)
 
     def on_L3_right(self, value):
-        print("L3 right to " + value)
+        print("L3 right to %d" % value)
 
     def on_R3_up(self, value):
-        print("R3 up to " + value)
+        print("R3 up to %d" % value)
 
     def on_R3_down(self, value):
-        print("R3 down to " + value)
+        print("R3 down to %d" % value)
 
     def on_R3_left(self, value):
-        print("R3 left to " + value)
+        print("R3 left to %d" % value)
 
     def on_R3_right(self, value):
-        print("R3 right to " + value)
+        print("R3 right to %d" % value)
 
     def on_L3_x_at_rest(self):
         print("L3 x at rest")
