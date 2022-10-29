@@ -2,7 +2,7 @@
 
 from pyPS4Controller.controller import Controller
 
-
+values = []
 # defining class for controller
 class MyController(Controller):
     # initialize attributes for controller
@@ -147,4 +147,4 @@ class MyController(Controller):
 # pointing to where controller is connected to and listening for inputs
 controller = MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
 controller.listen()
-values = []
+
