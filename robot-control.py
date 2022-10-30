@@ -1,8 +1,20 @@
 #!/usr/bin/env python
 
 from pyPS4Controller.controller import Controller
+import RPi.GPIO as GPIO
 
-values = []
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
+analog_pin = 12
+GPIO.setup(analog_pin, GPIO.OUT)
+pwm = GPIO.PWM(analog_pin, 100)
+
+
+def analog_to_pwm(value):
+    value = ((100 * (value + 32767)) // 65534)
+    return value
+
+
 # defining class for controller
 class MyController(Controller):
     # initialize attributes for controller
@@ -11,8 +23,7 @@ class MyController(Controller):
 
 # defining debug messages per button press
     def on_x_press(self):
-        print(max(values))
-        print(min(values))
+        print("x pressed")
 
     def on_x_release(self):
         print("released x")
@@ -42,7 +53,9 @@ class MyController(Controller):
         print("L1 released")
 
     def on_L2_press(self, value):
-        values.append(value)
+        out = analog_to_pwm(value)
+        print(out)
+        pwm.ChangeDutyCycle(out)
 
     def on_L2_release(self):
         print("L2 released")
@@ -147,4 +160,3 @@ class MyController(Controller):
 # pointing to where controller is connected to and listening for inputs
 controller = MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
 controller.listen()
-
